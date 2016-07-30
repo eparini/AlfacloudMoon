@@ -1,5 +1,5 @@
 {
-  "name": "alfacloud moon",
+  "name": "alfacloudmoon",
   "version": "1.0.0",
   "description": "test",
   "main": "index.js",
@@ -21,7 +21,8 @@
     "requirejs": "^2.2.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
-    "gulp-uglify": "1.5.4"
+    "gulp-uglify": "1.5.4",
+    "vinyl-buffer": "1.0.0"
   },
   "dependencies": {
     "angular": "^1.5.5"

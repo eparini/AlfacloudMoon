@@ -4,6 +4,7 @@ var connect = require('gulp-connect')
 var browserify = require('browserify')
 var source = require('vinyl-source-stream')
 var uglify = require('gulp-uglify');
+var buffer = require('vinyl-buffer');
 
 // Connect task
 gulp.task('connect', function () {
@@ -29,9 +30,11 @@ gulp.task('browserify-prod', function () {
         // bundles it and creates a file called main.js
         .bundle()
         .pipe(source('main.js'))
+        .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
+        .pipe(uglify()) // now gulp-uglify works
         // saves it the public/js/ directory
         .pipe(gulp.dest('./public/js/')
-        ); 
+        );
 })
 
 gulp.task('watch', function () {
