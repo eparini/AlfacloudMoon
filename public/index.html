@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Alfacloud Moon</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-controller="MainCtrl">
+	<div>
+		<h1>{{ title }}</h1>
+		<button ng-click="getSubscriptions()">getSubscriptions</button>
+		<!--<button ng-click="getLast100Posts()">getLast100Posts</button>
+		<button ng-click="getLikesCount()">getLikesCount</button>
+		<button ng-click="getCommentsCount()">getCommentsCount</button>
+		<button ng-click="getSharesCount()">getSharesCount</button>-->
+		<label>How many last post per subscription we are going to consider:
+			<input type="number" ng-model="howManyPostPerSubscription">
+		</label>
+	</div>
+
+
+	<div style="display:flex;">
+		<div>
+			<h2>Get user subscriptions:</h2>
+			<div style="height:600px; width:400px; overflow-y:scroll;">
+				<div ng-repeat="subscription in subscriptions">
+					<button style="width:400px;" ng-click="getTopShared(subscription)">{{subscription.name}}</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<h2>Get top shared from {{currentSubscription.name}}:</h2>
+			<div style="height:600px; width:900px; overflow-y:scroll;">
+				<div ng-repeat="topShare in topShares">
+					<div style="border:1px solid red;">
+						<span>Share Count: {{topShare.count}}</span><br/>
+						<a target="_blank" ng-href="{{topShare.link}}">Open link in new tab</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+<script src="/js/main.js"></script>
+
+</html>
